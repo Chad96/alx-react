@@ -1,0 +1,53 @@
+.App {
+  max-width: 100vw;
+  --border-bottom: 4px solid #e0354b;
+  --padding: 0.5em;
+  --gen-font-size:var(--gen-font-size)
+  --heading-font-size: 1.4rem
+  font-family: Arial, Helvetica, sans-serif
+  height: 100vh
+
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  height: 250px;
+  width: 250px;
+}
+
+
+.App-header {
+  background-color: white;
+  display: flex;
+  border-bottom: var(--border-bottom);
+  font-size: var(--gen-font-size);
+  padding: var(--padding);
+  color: #e0354b;
+  align-items: center;
+  
+}
+
+.App-title {
+  color: rgb(183, 52, 52);
+  margin-top: 5rem;
+  margin-left: 2rem;
+}
+
+
+.App-body {
+  height: 80%;
+  border-bottom: var(--border-bottom);
+  padding: calc(var(--padding)*2);
+  font-size: var(--gen-font-size);
+}
+
+.App-footer {
+  font-size: var(--gen-font-size);
+  padding: var(--padding);
+  text-align: center;
+  font-style: italic;
+}
+
+
