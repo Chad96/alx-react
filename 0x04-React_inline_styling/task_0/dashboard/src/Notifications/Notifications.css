@@ -1,15 +1,35 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 .Notifications {
-    padding: 1em;
-    border: 2px dashed red;
+    border: 3px dotted red;
+    padding: 5rem;
+    padding-bottom: 1.5rem;
     position: absolute;
-    top: 10px;
-    width: 95vw;
+    top: 3rem;
+    right: 1rem;
 }
-  
-li[data="default"] {
+
+.Notifications  p {
+
+    margin-bottom: 25px;
+    position: absolute;
+    left: 1rem;
+    top: 3rem;
+}
+
+.menuItem {
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+}
+
+ul li[data-notification-type= "default"] {
     color: blue;
 }
-  
-li[data="urgent"] {
+
+ul li[data-notification-type = "urgent"] {
     color: red;
 }

@@ -1,38 +1,31 @@
 import React from "react";
+import { shallow, mount } from "enzyme";
 import NotificationItem from "./NotificationItem";
-import { shallow } from "enzyme";
+import Notifications from './Notifications'
 
-describe("rendering components", () => {
-  it("renders NotificationItem component without crashing", () => {
-    const wrapper = shallow(<NotificationItem />);
 
-    expect(wrapper.exists()).toBe(true);
-  });
-
-  it('renders correct html from type="default" value="test" props', () => {
-    const wrapper = shallow(<NotificationItem />);
-
-    wrapper.setProps({ type: "default", value: "test" });
-    expect(wrapper.html()).toEqual('<li data-notification-type="default">test</li>');
-  });
-
-  it('renders correct html from  html="<u>test</u>" props', () => {
-    const wrapper = shallow(<NotificationItem />);
-
-    wrapper.setProps({ html: "<u>test</u>" });
-    expect(wrapper.html()).toEqual('<li data-urgent="true"><u>test</u></li>');
-  });
-});
-
-describe("onclick event behaves as it should", () => {
-  it("should call console.log", () => {
-    const wrapper = shallow(<NotificationItem />);
-    const spy = jest.fn();
-
-    wrapper.setProps({ value: "test item", markAsRead: spy, id: 1 });
-    wrapper.find("li").props().onClick();
-    expect(spy).toBeCalledTimes(1);
-    expect(spy).toBeCalledWith(1);
-    spy.mockRestore();
-  });
-});
+describe("Testing NotificationItem Component", () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(<NotificationItem />)
+    })
+    test("renders component without crashing", () => {
+        expect(wrapper.length).toBe(1)
+    })
+    test("renders the correct html by passing dummy type and value props", () => {
+        const wrapper = shallow(<NotificationItem type="urgent" value="New resume available" />)
+        expect(wrapper.html()).toBe('<li data-notification-type="urgent">New resume available</li>')
+    })
+    test("renders the correct html by passing dummy html prop", () => {
+        const wrapper = shallow(<NotificationItem html={{ __html: '<u>test</u>' }}/>)
+        expect(wrapper.html()).toBe('<li data-notification-type="default"><u>test</u></li>')
+    })
+    test("", () => {
+        const notificationWrapper = shallow(<Notifications />)
+        const mockFunc = jest.spyOn(notificationWrapper.instance(), 'markAsRead')
+        const wrapper = mount(<NotificationItem type="urgent" id={1} value="New resume available" markAsRead={mockFunc.mockImplementation((id) => (`Notification ${id} has been marked as read`))}/>)
+        const listElement = wrapper.find('li')
+        listElement.simulate('click')
+        expect(mockFunc).toHaveBeenCalledWith(1)
+    })
+})

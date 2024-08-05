@@ -1,25 +1,11 @@
 table {
-    margin-top: 2em;
+    border: solid 2px rgb(189, 187, 187);
     width: 100%;
-    border: 1px solid #ddd;
-    font-size: 1.2rem;
-    margin-bottom: 16em;
-  }
-  
-  th {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th,
-  td {
-    width: 85%;
-  }
-  
-  table {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  tr:nth-child(2) {
-    text-align: left;
-  }
+}
+table thead tr th {
+    border-bottom: solid 2px rgb(189, 187, 187);
+    text-align: start;
+}
+th[colspan="2"] {
+    text-align: center;
+}
