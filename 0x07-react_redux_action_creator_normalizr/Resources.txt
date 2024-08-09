@@ -1,0 +1,6 @@
+1. https://github.com/paularmstrong/normalizr
+2. https://redux.js.org/usage/structuring-reducers/normalizing-state-shape
+3. https://redux.js.org/introduction/getting-started
+4. https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
+5. https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+6. https://redux.js.org/usage/writing-tests
